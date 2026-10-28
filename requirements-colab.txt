@@ -1,0 +1,4 @@
+# Google Colab / Tesla T4 environment.
+# Colab supplies a CUDA-matched torch and torchvision build; do not reinstall
+# torch here or pip may replace the GPU build with a CPU wheel.
+-r requirements.txt

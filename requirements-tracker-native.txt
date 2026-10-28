@@ -1,0 +1,5 @@
+# Optional native SORT bindings. They need OpenCV and Eigen development
+# headers and are normally practical only on Linux. The setup scripts do NOT
+# install this file by default; use --native-sort only when that is intentional.
+sort-tracker
+

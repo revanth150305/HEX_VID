@@ -1,0 +1,1 @@
+"""Core modules for the explainable video-anomaly project."""

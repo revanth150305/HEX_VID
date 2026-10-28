@@ -1,0 +1,20 @@
+# Virtual environments
+.venv/
+.venv-directml/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Datasets (11 GB) and large artifacts
+data/
+checkpoints/
+Demo/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Logs / notebooks checkpoints
+logs/
+.ipynb_checkpoints/

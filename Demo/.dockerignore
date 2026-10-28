@@ -1,0 +1,6 @@
+checkpoints
+checkpoints_drive
+logs
+results
+__pycache__
+*.pyc

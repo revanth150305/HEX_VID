@@ -1,0 +1,1 @@
+"""Object-track extraction and visualization helpers."""

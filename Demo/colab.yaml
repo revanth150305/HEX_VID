@@ -1,0 +1,69 @@
+data:
+  dataset_root: /root/.cache/kagglehub/datasets/odins0n/ucf-crime-dataset/versions/1/Train
+  num_snippets: 16
+  frame_size: 224
+  num_workers: 2
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+model:
+  clip_model: openai/clip-vit-base-patch16
+  feature_dim: 512
+  num_concepts: 20
+  num_groups: 5
+  num_subclasses: 14
+  mamba:
+    d_state: 16
+    d_conv: 4
+    expand_factor: 2
+    num_layers: 4
+    dropout: 0.1
+  transformer:
+    num_layers: 2
+    num_heads: 4
+    window_size: 8
+    ffn_dim: 2048
+    dropout: 0.1
+    stochastic_depth: 0.1
+  concept_bottleneck:
+    temporal_attn_heads: 4
+    dropout: 0.2
+  fusion_dropout: 0.3
+  classification_dropout: 0.3
+training:
+  batch_size: 4
+  accumulation_steps: 4
+  seed: 42
+  checkpoint_dir: /content/drive/MyDrive/HEX_VID/checkpoints
+  log_dir: /content/drive/MyDrive/HEX_VID/logs
+  optimizer:
+    weight_decay: 0.05
+    betas:
+    - 0.9
+    - 0.999
+    grad_clip_norm: 1.0
+  early_stopping:
+    patience: 8
+    min_delta: 0.001
+  phases:
+    warmup:
+      epochs: 5
+      lr: 0.0001
+      unfreeze_clip_layers: 0
+    joint:
+      epochs: 30
+      lr: 0.0003
+      unfreeze_clip_layers: 0
+    finetune:
+      epochs: 15
+      lr: 1.0e-05
+      unfreeze_clip_layers: 2
+loss:
+  focal_gamma: 2.0
+  label_smoothing: 0.1
+  group_weight: 1.0
+  sub_weight: 1.0
+  concept_weight: 0.5
+  consistency_weight: 0.3
+mixup_alpha: 0.2
+use_gradient_checkpointing: true

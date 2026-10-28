@@ -1,0 +1,8 @@
+services:
+  hexvid:
+    build: .
+    ports:
+      - "7860:7860"
+    volumes:
+      # model weights are mounted, not baked into the image
+      - ./checkpoints:/app/HEX_VID/checkpoints:ro

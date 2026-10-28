@@ -1,0 +1,10 @@
+# Update these paths and hyperparameters to match the training code you add.
+data_root: data/processed
+checkpoint_dir: checkpoints
+output_dir: outputs
+batch_size: 8
+num_workers: 4
+learning_rate: 0.0001
+epochs: 20
+device: auto
+
